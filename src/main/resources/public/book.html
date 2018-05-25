@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Book</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+          integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+</head>
+
+<body ng-app="App">
+Book
+<div ng-controller="Book as ctrl" id="block">
+    <div class="container-fluid">
+        <div class="datagrid">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Вміст</th>
+                    <th>Видання</th>
+                    <th>Автор</th>
+                    <th>Рік видання</th>
+                    <th>Жанр</th>
+                    <th>Тип</th>
+                    <th>Ім'я доставленої книги</th>
+                    <th>id місця зберігання</th>
+                    <th>Ім'я бібліотекаря</th>
+                    <th>Інвентарний номер</th>
+
+                    <th width="65px">
+                        <button type="button" class="btn-success" data-toggle="modal" data-target="#addModal"
+                                style="width: 63px" ng-click="ctrl.startInsertBook()">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </th>
+                </tr>                </thead>
+                <tbody>
+                <tr ng-repeat="item in book">
+                    <td>{{item.idBook}}</td>
+                    <td>{{item.containmentOfABook}}</td>
+                    <td>{{item.bookEdition}}</td>
+                    <td>{{item.bookAuthor}}</td>
+                    <td>{{item.bookYear}}</td>
+                    <td>{{item.bookGenre}}</td>
+                    <td>{{item.bookType}}</td>
+                    <td>{{item.deliveryndeleting.bookName}}</td>
+                    <td>{{item.storageplace.idStoragePlace}}</td>
+                    <td>{{item.librarian.librarianName}}</td>
+                    <td>{{item.inventoryNumber}}</td>
+                    <td scope="row">
+                        <button type="button" class="btn-warning" data-toggle="modal" data-target="#updateModal"
+                                ng-click="ctrl.startUpdateBook(item.idBook,item.containmentOfABook,item.bookEdition,item.bookAuthor,item.bookYear,item.bookGenre,item.bookType,item.deliveryndeleting.idDeliveryNDeleting,item.storageplace.idStoragePlace,item.librarian.idLibrarian,item.inventoryNumber)"
+                                style="width: 30px">
+                            <i class="fas fa-pencil-alt"></i>
+                        </button>
+                        <button type="button" class="btn-danger" ng-click="ctrl.delFromBook(item.idBook)"
+                                style="width: 30px">
+                            <i class="far fa-trash-alt"></i>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!--добавление ReservationOrganization-->
+        <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addModalLabel">Добавлення</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Закрити">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Введіть вміст книги
+                        <br>
+                        <input type="text" id="ContainmentOfABook">
+                        <br>
+                        Введіть видання
+                        <br>
+                        <input type="text" id="BookEdition">
+                        <br>
+                        Введіть автора
+                        <br>
+                        <input type="text" id="BookAuthor">
+                        <br>
+                        Введіть рік
+                        <br>
+                        <input type="int" id="BookYear">
+                        <br>
+                        Введіть жанр
+                        <br>
+                        <input type="text" id="BookGenre">
+                        <br>
+                        Введіть тип
+                        <br>
+                        <input type="text" id="BookType">
+                        <br>
+                        Введіть назву книги
+                        <br>
+                        <select id="DNDBookName">
+                        </select>
+                        <br>
+                        Введіть місце зберігання
+                        <br>
+                        <select id="StoragePlace">
+                        </select>
+                        <br>
+                        Введіть ім'я бібліотекаря
+                        <br>
+                        <select id="LibrarianName">
+                        </select>
+                        <br>
+                        Введіть інвентарний номер
+                        <br>
+                        <input type="int" id="InventoryNumber">
+                        <br>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+                        <button type="button" class="btn btn-primary" ng-click="ctrl.insertToBook()">Добавити</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--обновленіє ReservationOrganization-->
+        <div class="modal fade" id="updateModal" tabindex="-2" role="dialog" aria-labelledby="updateModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="updateModalLabel">Обновлення</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Закрити">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Ідентифікатор
+                        <br>
+                        <div id="BookIdUPD"></div>
+                        <br>
+                        Введіть вміст книги
+                        <br>
+                        <input type="text" id="ContainmentOfABookUPD">
+                        <br>
+                        Введіть видання
+                        <br>
+                        <input type="text" id="BookEditionUPD">
+                        <br>
+                        Введіть автора
+                        <br>
+                        <input type="text" id="BookAuthorUPD">
+                        <br>
+                        Введіть рік
+                        <br>
+                        <input type="int" id="BookYearUPD">
+                        <br>
+                        Введіть жанр
+                        <br>
+                        <input type="text" id="BookGenreUPD">
+                        <br>
+                        Введіть тип
+                        <br>
+                        <input type="text" id="BookTypeUPD">
+                        <br>
+                        Введіть назву книги
+                        <br>
+                        <select id="DNDBookNameUPD">
+                        </select>
+                        <br>
+                        Введіть місце зберігання
+                        <br>
+                        <select id="StoragePlaceUPD">
+                        </select>
+                        <br>
+                        Введіть ім'я бібліотекаря
+                        <br>
+                        <select id="LibrarianNameUPD">
+                        </select>
+                        <br>
+                        Введіть інвентарний номер
+                        <br>
+                        <input type="int" id="InventoryNumberUPD">
+                        <br>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+                        <button type="button" class="btn btn-primary" ng-click="ctrl.updateBook()">Обновити</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+</body>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/Book.js"></script>
+
+</html>
+
+
+
