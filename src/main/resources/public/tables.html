@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+
+    <title>Таблиці</title>
+</head>
+<body ng-app = "demo">
+
+
+<div ng-controller="AppCtrl">
+    <!-- Навигация -->
+
+    <ul class="nav nav-tabs" role="tablist">
+
+        <li class="active"><a href="#vkladka1"  aria-controls="vkladka1" role="tab" data-toggle="tab">Книги&nbsp;&nbsp;</a></li>
+        <li><a href="#vkladka2" aria-controls="vkladka2" role="tab" data-toggle="tab">Доставки і списання&nbsp;&nbsp;</a></li>
+        <li><a href="#vkladka3" aria-controls="vkladka3" role="tab" data-toggle="tab">Бібліотекарі&nbsp;&nbsp;</a></li>
+        <li><a href="#vkladka4" aria-controls="vkladka4" role="tab" data-toggle="tab">Лог бібліотеки&nbsp;&nbsp;</a></li>
+        <li><a href="#vkladka5" aria-controls="vkladka5" role="tab" data-toggle="tab">Учень&nbsp;&nbsp;</a></li>
+        <li><a href="#vkladka6" aria-controls="vkladka6" role="tab" data-toggle="tab">Читачі&nbsp;&nbsp;</a></li>
+        <li><a href="#vkladka7" aria-controls="vkladka7" role="tab" data-toggle="tab">Вчені&nbsp;&nbsp;</a></li>
+        <li><a href="#vkladka8" aria-controls="vkladka8" role="tab" data-toggle="tab">Місця зберігання книг&nbsp;&nbsp;</a></li>
+        <li><a href="#vkladka9" aria-controls="vkladka9" role="tab" data-toggle="tab">Студенти&nbsp;&nbsp;</a></li>
+
+    </ul>
+    <!-- Содержимое вкладок -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="vkladka1"><table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Вміст</th>
+                <th>Видання</th>
+                <th>Автор</th>
+                <th>Рік видання</th>
+                <th>Жанр</th>
+                <th>Тип</th>
+                <th>Ім'я доставленої книги</th>
+                <th>id місця зберігання</th>
+                <th>Ім'я бібліотекаря</th>
+                <th>Інвентарний номер</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in book">
+                <td>{{item.idBook}}</td>
+                <td>{{item.containmentOfABook}}</td>
+                <td>{{item.bookEdition}}</td>
+                <td>{{item.bookAuthor}}</td>
+                <td>{{item.bookYear}}</td>
+                <td>{{item.bookGenre}}</td>
+                <td>{{item.bookType}}</td>
+                <td>{{item.deliveryndeleting.bookName}}</td>
+                <td>{{item.storageplace.idStoragePlace}}</td>
+                <td>{{item.librarian.librarianName}}</td>
+                <td>{{item.inventoryNumber}}</td>
+
+            </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="vkladka2">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+
+                    <th>ID</th>
+                    <th>Назва книги</th>
+                    <th>Дата доставки</th>
+                    <th>Дата списання</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in deliveryndeleting">
+                    <td>{{item.idDeliveryNDeleting}}</td>
+                    <td>{{item.bookName}}</td>
+                    <td>{{item.deliveryDate}}</td>
+                    <td>{{item.deletingDate}}</td>
+
+
+
+                </tr>
+
+                </tbody>
+            </table>
+    </div>
+
+
+        <div role="tabpanel" class="tab-pane" id="vkladka3">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th width="40px">Ідентифікатор</th>
+                    <th>Ім'я бібліотекаря</th>
+                    <th>Час візиту </th>
+                    <th>Номер залу </th>
+                    <th>Номер бібліотеки </th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in librarian">
+                    <td scope="row">{{item.idLibrarian}}</td>
+                    <td scope="row">{{item.librarianName}}</td>
+                    <td scope="row">{{item.timeOfVisit}}</td>
+                    <td scope="row">{{item.hallNumber}}</td>
+                    <td scope="row">{{item.libraryNumber}}</td>
+
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="vkladka4">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Дата візиту</th>
+                    <th>Дата видання</th>
+                    <th>Кількість днів</th>
+                    <th>id читача</th>
+                    <th>Вміст книги</th>
+
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr ng-repeat="item in libraryitself">
+                    <td>{{item.idLibraryItself}}</td>
+                    <td>{{item.visitingDate}}</td>
+                    <td>{{item.issuingDate}}</td>
+                    <td>{{item.time}}</td>
+                    <td>{{item.readers.idReaders}}</td>
+                    <td>{{item.book.containmentOfABook}}</td>
+
+
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="vkladka5">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+
+                    <th>ID</th>
+                    <th>Ім'я учня</th>
+                    <th>Назва школи</th>
+                    <th>Клас</th>
+                    <th>id читача</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in pupil">
+                    <td>{{item.idPupil}}</td>
+                    <td>{{item.pupilName}}</td>
+                    <td>{{item.schoolName}}</td>
+                    <td>{{item.grade}}</td>
+                    <td>{{item.readers.idReaders}}</td>
+
+
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="vkladka6">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+
+                    <th width="40px">Ідентифікатор</th>
+                    <th>Професія</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in readers">
+                    <td scope="row">{{item.idReaders}}</td>
+                    <td scope="row">{{item.profession}}</td>
+
+                </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="vkladka7">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+
+                    <th>ID</th>
+                    <th>Ім'я вченого</th>
+                    <th>Назва організації</th>
+                    <th>Вчений ступінь</th>
+                    <th>Тема</th>
+                    <th>id читача</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in scientist">
+                    <td>{{item.idScientist}}</td>
+                    <td>{{item.scientistName}}</td>
+                    <td>{{item.organizationName}}</td>
+                    <td>{{item.scientificLevel}}</td>
+                    <td>{{item.topic}}</td>
+                    <td>{{item.readers.idReaders}}</td>
+                </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+        <div role="tabpanel" class="tab-pane" id="vkladka8">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+
+                    <th>ID</th>
+                    <th>Номер залу</th>
+                    <th>Номер шафи</th>
+                    <th>Номер полки</th>
+
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr ng-repeat="item in storageplace">
+                    <td>{{item.idStoragePlace}}</td>
+                    <td>{{item.hallNumber}}</td>
+                    <td>{{item.rackNumber}}</td>
+                    <td>{{item.shelfNumber}}</td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="vkladka9">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+
+                    <th>ID</th>
+                    <th>Ім'я Студента</th>
+                    <th>Назва навчального закладу</th>
+                    <th>Факультет</th>
+                    <th>Група</th>
+                    <th>id читача</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in students">
+                    <td>{{item.idStudents}}</td>
+                    <td>{{item.studentName}}</td>
+                    <td>{{item.educationalPlaceName}}</td>
+                    <td>{{item.faculty}}</td>
+                    <td>{{item.groupNumber}}</td>
+                    <td>{{item.readers.idReaders}}</td>
+                </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+
+    </div>
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
