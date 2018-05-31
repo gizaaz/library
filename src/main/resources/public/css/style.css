@@ -123,11 +123,11 @@ input, button, label {
   border-radius: 3px;
   background: rgb(81,92,102) linear-gradient(rgb(81,92,102), rgb(69,78,87));
   box-shadow:
-   inset 0 1px rgba(101,114,126,1),
-   inset 0 0 1px rgba(140,150,170,.8),
-   0 1px rgb(83,94,104),
-   0 0 1px rgb(86,96,106);
-} 
+          inset 0 1px rgba(101,114,126,1),
+          inset 0 0 1px rgba(140,150,170,.8),
+          0 1px rgb(83,94,104),
+          0 0 1px rgb(86,96,106);
+}
 
 .blocked{
   display: inline-block;
@@ -155,11 +155,11 @@ input, button, label {
   border-radius: 3px;
   background: rgb(81,92,102) linear-gradient(rgb(81,92,102), rgb(69,78,87));
   box-shadow:
-   inset 0 1px rgba(101,114,126,1),
-   inset 0 0 1px rgba(140,150,170,.8),
-   0 1px rgb(83,94,104),
-   0 0 1px rgb(86,96,106);
-} 
+          inset 0 1px rgba(101,114,126,1),
+          inset 0 0 1px rgba(140,150,170,.8),
+          0 1px rgb(83,94,104),
+          0 0 1px rgb(86,96,106);
+}
 
 .blocked2{
   display: inline-block;
@@ -319,39 +319,39 @@ label {
 
 /* ����� ���� vladmaxi, ����� ������� */
 .vladmaxi-top{
-	line-height: 24px;
+  line-height: 24px;
   background: #eee;
-	text-transform: uppercase;
-	z-index: 9999;
-	position: fixed;
-	top:0;
-	left:0;
-	width:100%;
+  text-transform: uppercase;
+  z-index: 9999;
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
   font-family: calibri, serif;
-	font-size: 13px;
-	box-shadow: 1px 0 2px rgba(0,0,0,0.2);
-	-webkit-animation: slideOut 0.5s ease-in-out 0.3s backwards;
+  font-size: 13px;
+  box-shadow: 1px 0 2px rgba(0,0,0,0.2);
+  -webkit-animation: slideOut 0.5s ease-in-out 0.3s backwards;
 }
 @-webkit-keyframes slideOut{
-	0%{top:-30px; opacity: 0;}
-	100%{top:0; opacity: 1;}
+  0%{top:-30px; opacity: 0;}
+  100%{top:0; opacity: 1;}
 }
 
 .vladmaxi-top a{
-	padding: 0 10px;
-	letter-spacing: 1px;
-	color: #333;
-	text-shadow: 0 1px 1px #fff;
-	display: block;
-	float: left;
+  padding: 0 10px;
+  letter-spacing: 1px;
+  color: #333;
+  text-shadow: 0 1px 1px #fff;
+  display: block;
+  float: left;
 }
 .vladmaxi-top a:hover{
-	background: #fff;
+  background: #fff;
 }
 .vladmaxi-top span.right{
-	float: right;
+  float: right;
 }
 .vladmaxi-top span.right a{
-	float: left;
-	display: block;
+  float: left;
+  display: block;
 }

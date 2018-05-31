@@ -1,13 +1,9 @@
 var App = angular.module('App',[]);
 
 App.controller('StoragePlace',function ($http,$scope) {
-    var time = performance.now();
     $http.get('/storageplace/get').then(function (response){
-        time = performance.now() - time;
-        console.log('Час виконанння = ', time);
-        alert("-----");
         $scope.storageplace=response.data;
-        console.log(response);
+        
     });
     this.insertToStoragePlace = function add() {
         var halln = document.getElementById("HallNumber").value;
@@ -26,12 +22,8 @@ App.controller('StoragePlace',function ($http,$scope) {
             }
         };
         console.log(req);
-        var time = performance.now();
         $http(req).then(function (resp) {
-            console.log(resp);
-            time = performance.now() - time;
-            console.log('Додавання новго запису = ', time);
-            alert("-----");
+
             window.location.reload();
         })
     };
@@ -62,22 +54,13 @@ App.controller('StoragePlace',function ($http,$scope) {
             }
         };
         //console.log(req);
-        var time = performance.now();
         $http(req).then(function (resp) {
-            //console.log(resp);
-            time = performance.now() - time;
-            console.log('Оновлення = ', time);
-            alert("--------");
             window.location.reload();
         })
     };
 
     this.delFromStoragePlace  = function del(id) {
-        var time = performance.now();
         $http.get('/storageplace/del?id=' + id).then(function () {
-            time = performance.now() - time;
-            console.log('Видалення = ', time);
-            alert("--------");
             window.location.reload();
         });
     };

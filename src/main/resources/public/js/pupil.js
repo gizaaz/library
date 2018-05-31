@@ -1,13 +1,8 @@
 var App = angular.module('App',[]);
 
 App.controller('Pupil',function ($http,$scope) {
-    var time = performance.now();
     $http.get('/pupil/get').then(function (response){
-        time = performance.now() - time;
-        console.log('Час виконанння = ', time);
-        alert("-----");
         $scope.pupil=response.data;
-        console.log(response);
     });
 
     this.startInsertPupil = function startUpdate() {
@@ -47,13 +42,7 @@ App.controller('Pupil',function ($http,$scope) {
 
             }
         };
-        console.log(req);
-        var time = performance.now();
         $http(req).then(function (resp) {
-            console.log(resp);
-            time = performance.now() - time;
-            console.log('Додавання новго запису = ', time);
-            alert("-----");
             window.location.reload();
         })
     };
@@ -105,23 +94,13 @@ App.controller('Pupil',function ($http,$scope) {
                 readers_idReaders:Readers_id
             }
         };
-        //console.log(req);
-        var time = performance.now();
         $http(req).then(function (resp) {
-            //console.log(resp);
-            time = performance.now() - time;
-            console.log('Оновлення = ', time);
-            alert("--------");
             window.location.reload();
         })
     };
 
     this.delFromPupil = function del(id) {
-        var time = performance.now();
         $http.get('/pupil/del?id=' + id).then(function () {
-            time = performance.now() - time;
-            console.log('Видалення = ', time);
-            alert("--------");
             window.location.reload();
         });
     };

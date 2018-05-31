@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Book</title>
+    <title>Книги</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
@@ -13,9 +13,49 @@
 </head>
 
 <body ng-app="App">
-Book
+Книги
 <div ng-controller="Book as ctrl" id="block">
     <div class="container-fluid">
+        <div class="datagrid">
+            <table>
+                <tbody>
+                <tr>
+
+                    <th class="my-th-selected" >
+                        <a style="color: white">Книги</a>
+                    </th>
+                    <th  class="my-th">
+                        <a href="\deliveryndeleting.html" style="color: white">Доставки та списання</a>
+                    </th>
+                    <th  class="my-th">
+                        <a href="\librarian.html" style="color: white">Біблотекарі</a>
+                    </th>
+                    <th class="my-th">
+                        <a href="\LibraryItself.html" style="color: white">Лог бібліотеки</a>
+                    </th>
+                    <th  class="my-th">
+                        <a href="\pupil.html" style="color: white">Учні</a>
+                    </th>
+
+                </tr>
+                <tr>
+                    <th class="my-th">
+                        <a href="\Readers.html" style="color: white">Читачі</a>
+                    </th>
+                    <th  class="my-th">
+                        <a href="\Scientist.html" style="color: white">Вчені</a>
+                    </th>
+                    <th  class="my-th">
+                        <a href="\StoragePlace.html" style="color: white">Місце зберігання</a>
+                    </th>
+                    <th  class="my-th">
+                        <a href="\Students.html" style="color: white">Студенти</a>
+                    </th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="panel-heading"> Книги </div>
         <div class="datagrid">
             <table>
                 <thead>
@@ -94,7 +134,7 @@ Book
                         <br>
                         Введіть рік
                         <br>
-                        <input type="int" id="BookYear">
+                        <input type="number" id="BookYear">
                         <br>
                         Введіть жанр
                         <br>
@@ -121,7 +161,7 @@ Book
                         <br>
                         Введіть інвентарний номер
                         <br>
-                        <input type="int" id="InventoryNumber">
+                        <input type="number" id="InventoryNumber">
                         <br>
                     </div>
                     <div class="modal-footer">
@@ -162,7 +202,7 @@ Book
                         <br>
                         Введіть рік
                         <br>
-                        <input type="int" id="BookYearUPD">
+                        <input type="number" id="BookYearUPD">
                         <br>
                         Введіть жанр
                         <br>
@@ -189,8 +229,11 @@ Book
                         <br>
                         Введіть інвентарний номер
                         <br>
-                        <input type="int" id="InventoryNumberUPD">
+                        <input type="number" id="InventoryNumberUPD">
                         <br>
+                        <th  class="my-th">
+                            <a href="\main.html" style="color: white">На головну</a>
+                        </th>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>

@@ -23,7 +23,7 @@ App.controller('Deliveryndeleting',function ($http,$scope) {
         };
         console.log(req);
         $http(req).then(function (resp) {
-            console.log(resp);
+
             window.location.reload();
         })
     };
@@ -53,7 +53,6 @@ App.controller('Deliveryndeleting',function ($http,$scope) {
         };
         console.log(req);
         $http(req).then(function (resp) {
-            console.log(resp);
             window.location.reload();
         })
     };
