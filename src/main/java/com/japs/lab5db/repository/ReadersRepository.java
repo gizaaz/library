@@ -13,7 +13,7 @@ import java.util.List;
 public interface ReadersRepository extends JpaRepository<Readers,Integer> {
     @Query("Select readers From Readers readers " +
             "inner join LibraryItself libr on readers.idReaders=libr.idLibraryItself"+
-            " where libr.issuingDate > libr.visitingDate")
+            " where libr.issuingDate > libr.visitingDate ")
     List<Readers> selectReadersWhereDate();
 
     @Query("Select readers From Readers readers " +

@@ -102,7 +102,7 @@ public class RequestService implements IRequest {
         List<Book> books = bookRepository.selectBooks();
         List<Long> amount = bookRepository.selectAmount();
         List<AmountBook>list = new ArrayList<>();
-        for (int i = 0; i < amount.size() ; i++) {
+        for (int i = 0; i < (amount.size()+1)/2 ; i++) {
             list.add(new AmountBook(amount.get(i),books.get(i)));
         }
         return list;

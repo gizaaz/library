@@ -3,7 +3,7 @@ var app = angular.module("kursova", []);
 app.controller("AppCtrl", function ($http, $scope){
     $scope.request18 = [];
     var bookGenre = "2";
-    $http.get('http://localhost:8080/request/request18?bookGenre='+bookGenre).then(function (response){
+    $http.get('/request/request18?bookGenre='+bookGenre).then(function (response){
         $scope.request18=response.data;
         console.log(response);
         $http.get('/book/get').then(function (response){
@@ -23,7 +23,7 @@ app.controller("AppCtrl", function ($http, $scope){
     this.update_request = function add() {
         var index = document.getElementById("bookGenre").selectedIndex;
         bookGenre= document.getElementById("bookGenre").options[index].value;
-        $http.get('http://localhost:8080/request/request18?bookGenre='+bookGenre).then(function (response){
+        $http.get('/request/request18?bookGenre='+bookGenre).then(function (response){
             $scope.request18=response.data;
             console.log(response);
         });
