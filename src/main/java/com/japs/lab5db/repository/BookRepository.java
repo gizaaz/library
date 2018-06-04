@@ -39,6 +39,8 @@ public interface BookRepository extends JpaRepository<Book,Integer> {
 
     @Query ("Select book From Book book  group by book.containmentOfABook order by book.idBook")
     List<Book> selectBooks ();
+
+
     @Query ("Select book From Book book   ")
     List<Book> selectBookSelectAll ();
     @Query("Select book From Book book " +
